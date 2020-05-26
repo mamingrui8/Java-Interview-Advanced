@@ -36,4 +36,5 @@ mysql 这么重的数据库，压根儿设计不是让你玩儿高并发的，�
 - [缓存雪崩、缓存穿透](/docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md)
 - [缓存并发竞争](/docs/high-concurrency/redis-cas.md)
 
-后面再详细说明。
+### 为什么数据库不能支撑高并发，但缓存
+因为缓存是基于内存的，内存天然就可以支撑，别说4000/s的并发量，就算是4万/s的访问量也没有问题。
