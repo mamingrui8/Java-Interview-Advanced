@@ -82,7 +82,7 @@ master 每次接收到写命令之后，先在内部写入数据，然后异步�
 
 但是，如果 master node 死掉了，会怎么样？没法写数据了，写缓存的时候，全部失效了。slave node 还有什么用呢，没有 master 给它们复制数据了，系统相当于不可用了。
 
-redis 的高可用架构，叫做 `failover` **故障转移**，也可以叫做主备切换。
+redis 的高可用架构，叫做 `failover` **故障转移**，也可以叫做主备切换。这个切换的过程需要借助sentinal node哨兵的帮助。
 
 master node 在故障时，自动检测，并且将某个 slave node 自动切换为 master node 的过程，叫做主备切换。这个过程，实现了 redis 的主从架构下的高可用。
 
