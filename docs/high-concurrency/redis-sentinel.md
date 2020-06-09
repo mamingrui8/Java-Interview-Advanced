@@ -125,7 +125,7 @@ sdown 达成的条件很简单，如果一个哨兵 ping 一个 master，超过�
 (down-after-milliseconds * 10) + milliseconds_since_master_is_in_SDOWN_state
 ```
 
-接下来会对 slave 进行排序：
+接下来会对剩下的slave 进行排序：
 
 - 按照 slave 优先级进行排序，slave priority 越低，优先级就越高。
 - 如果 slave priority 相同，那么看 replica offset，哪个 slave 复制了越多的数据，offset 越靠后，优先级就越高。
