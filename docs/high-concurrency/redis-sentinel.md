@@ -110,7 +110,7 @@ sdown 达成的条件很简单，如果一个哨兵 ping 一个 master，超过�
 
 每个哨兵还会跟其他哨兵交换对 `master` 的监控配置，互相进行监控配置的同步。
 
-quorum是说当此master至少被多少个哨兵认为主观下线时，才会触发failover，然后还要根据哨兵集群的majority来做执行failover的阈值，比如这里quorum设为1，那么一台哨兵认为master宕机了便可触发failover，但仍需要有3台哨兵集群的majority=2个哨兵认为master主观下线才会执行failover，即quorum是用来指定触发failover的阈值，然后sentinel集群开始根据majority的阈值来通信交流看是否要执行failover
+quorum是说当此master至少被多少个哨兵认为主观下线时，才会触发failover，然后还要根据哨兵集群的majority来做执行failover的阈值，比如这里quorum设为1，那么一台哨兵认为master宕机了便可触发failover，但仍需要有3台哨兵集群的majority=2个哨兵认为master主观下线才会执行failover，即quorum是用来指定触发failover的阈值，然后sentinel集群开始根据majority的阈值来通信交流看是否要执行failover。 **触发和执行是两码事**
 
 ## slave 配置的自动纠正
 哨兵会负责自动纠正 slave 的一些配置，比如 slave 如果要成为潜在的 master 候选人，哨兵会确保 slave 复制现有 master 的数据；如果 slave 连接到了一个错误的 master 上，比如故障转移之后，那么哨兵会确保它们连接到正确的 master 上。
