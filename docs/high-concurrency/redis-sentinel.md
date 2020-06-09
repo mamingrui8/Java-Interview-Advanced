@@ -29,6 +29,8 @@ sentinel，中文名是哨兵。哨兵是 redis 集群机构中非常重要的�
 
 配置 `quorum=1`，如果 master 宕机， s1 和 s2 中只要有 1 个哨兵认为 master 宕机了，就可以进行切换，同时 s1 和 s2 会选举出一个哨兵来执行故障转移。但是同时这个时候，需要 majority，也就是大多数哨兵都是运行的。
 
+算法类似于: Math.floor((n+1)/2);
+
 ```
 2 个哨兵，majority=2
 3 个哨兵，majority=2
